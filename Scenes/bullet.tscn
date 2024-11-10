@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://hnhu8k1w4afk"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_cf17h"]
+[ext_resource type="Texture2D" uid="uid://4amw4cs1wxow" path="res://Assets/shuriken.png" id="2_qvqpj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewomu"]
+size = Vector2(5, 5)
+
+[node name="Bullet" type="CharacterBody2D" groups=["Projectile"]]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_cf17h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5, -0.5)
+texture = ExtResource("2_qvqpj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ewomu")
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

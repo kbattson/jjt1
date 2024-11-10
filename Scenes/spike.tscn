@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://casvhqr7evvje"]
+
+[ext_resource type="Script" path="res://Scripts/spike.gd" id="1_2qstw"]
+[ext_resource type="Texture2D" uid="uid://b12hqrgsuw82i" path="res://Assets/test_set.png" id="1_iqcth"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2y6el"]
+size = Vector2(6, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oobay"]
+size = Vector2(8, 8)
+
+[node name="Spike" type="StaticBody2D" groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_2qstw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 4)
+texture = ExtResource("1_iqcth")
+region_enabled = true
+region_rect = Rect2(0, 24, 8, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_2y6el")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_oobay")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
