@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://dhkjsxw6yqcd5"]
+[gd_scene load_steps=7 format=4 uid="uid://dhkjsxw6yqcd5"]
 
 [ext_resource type="PackedScene" uid="uid://baprq14svtfj4" path="res://Scenes/player.tscn" id="1_lrmr6"]
 [ext_resource type="Texture2D" uid="uid://b12hqrgsuw82i" path="res://Assets/test_set.png" id="2_x62b1"]
 [ext_resource type="PackedScene" uid="uid://casvhqr7evvje" path="res://Scenes/spike.tscn" id="3_l5x2g"]
+[ext_resource type="PackedScene" uid="uid://mrpjua8vrjbm" path="res://Scenes/walker.tscn" id="4_y3saj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7o36"]
 texture = ExtResource("2_x62b1")
@@ -37,3 +38,12 @@ tile_set = SubResource("TileSet_ejj0i")
 
 [node name="Spike" parent="." instance=ExtResource("3_l5x2g")]
 position = Vector2(128, 56)
+
+[node name="Walker" parent="." instance=ExtResource("4_y3saj")]
+position = Vector2(104, 32)
+
+[node name="Walker2" parent="." instance=ExtResource("4_y3saj")]
+position = Vector2(8, 80)
+
+[node name="Walker3" parent="." instance=ExtResource("4_y3saj")]
+position = Vector2(104, 80)

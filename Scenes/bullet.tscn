@@ -8,7 +8,7 @@ size = Vector2(5, 5)
 
 [node name="Bullet" type="CharacterBody2D" groups=["Projectile"]]
 collision_layer = 8
-collision_mask = 4
+collision_mask = 5
 script = ExtResource("1_cf17h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

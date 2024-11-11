@@ -115,7 +115,7 @@ animations = [{
 size = Vector2(6, 8)
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 0
+collision_layer = 2
 script = ExtResource("1_f0bd8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -132,7 +132,7 @@ autoplay = "idle"
 wait_time = 0.27
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]

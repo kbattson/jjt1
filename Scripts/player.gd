@@ -47,8 +47,11 @@ func _physics_process(delta):
 func get_grav() -> Vector2:
 	return get_gravity() if velocity.y < 0 else get_gravity() * FALL_GRAVITY_MULT
 	
-func set_flip():
-	anim.flip_h = true if velocity.x < 0 else false
+func set_flip() -> void:
+	if velocity.x < 0:
+		anim.flip_h = true 
+	if velocity.x > 0:
+		anim.flip_h = false
 		
 func shoot():
 	var instance = projectile.instantiate()

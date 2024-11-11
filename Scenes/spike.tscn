@@ -24,7 +24,7 @@ region_rect = Rect2(0, 24, 8, 8)
 position = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_2y6el")
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." groups=["Enemy"]]
 collision_layer = 0
 collision_mask = 8
 
