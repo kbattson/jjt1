@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6br8gimllhh3"]
+
+[ext_resource type="Texture2D" uid="uid://btbtaodiq0cy4" path="res://Entities/Bomber/bomber.png" id="1_4ngm6"]
+[ext_resource type="Script" path="res://Entities/Bomber/bomber.gd" id="1_k4dh5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cg5j2"]
+size = Vector2(4, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwsoa"]
+size = Vector2(8, 8)
+
+[node name="Bomber" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_k4dh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4ngm6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cg5j2")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_rwsoa")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED : float = 500.0
+const SPEED : float = 1200.0
 const OFFSET : int = 10
 
 var health : int = 2
@@ -8,7 +8,7 @@ var flipped : bool = false
 
 @onready var ahead_cast = $AheadCast
 @onready var down_cast = $DownCast
-@onready var anim = $Sprite2D
+@onready var anim = $AnimatedSprite2D
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Projectile"):

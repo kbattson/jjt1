@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var main = get_tree().get_root().get_node("Main")
-@onready var projectile = load("res://Scenes/bullet.tscn")
+@onready var projectile = load("res://Entities/Bullet/bullet.tscn")
 @onready var anim = $AnimatedSprite2D
 @onready var shoot_timer = $ShootTimer
 

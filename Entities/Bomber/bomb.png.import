@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cskkn4msp680m"
-path="res://.godot/imported/walker.png-ec8c2853ca200fd39a3614d359de26f4.ctex"
+uid="uid://cxaypve6do0rq"
+path="res://.godot/imported/bomb.png-2f3005b26f3d79daa27f012cdcb1992b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/walker.png"
-dest_files=["res://.godot/imported/walker.png-ec8c2853ca200fd39a3614d359de26f4.ctex"]
+source_file="res://Entities/Bomber/bomb.png"
+dest_files=["res://.godot/imported/bomb.png-2f3005b26f3d79daa27f012cdcb1992b.ctex"]
 
 [params]
 

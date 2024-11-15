@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://casvhqr7evvje"]
+
+[ext_resource type="Script" path="res://Entities/Spike/spike.gd" id="1_2qstw"]
+[ext_resource type="Texture2D" uid="uid://b12hqrgsuw82i" path="res://Levels/test_set.png" id="1_iqcth"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttcj1"]
+atlas = ExtResource("1_iqcth")
+region = Rect2(8, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1h67"]
+atlas = ExtResource("1_iqcth")
+region = Rect2(16, 24, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hta3p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttcj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1h67")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2y6el"]
+size = Vector2(6, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oobay"]
+size = Vector2(8, 2)
+
+[node name="Spike" type="StaticBody2D" groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_2qstw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_hta3p")
+frame_progress = 0.41159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 7)
+shape = SubResource("RectangleShape2D_2y6el")
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["Enemy"]]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(4, 7)
+shape = SubResource("RectangleShape2D_oobay")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

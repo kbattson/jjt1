@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4amw4cs1wxow"
-path="res://.godot/imported/shuriken.png-3683ffd067da2b40fd37e1d70c66572d.ctex"
+uid="uid://cskkn4msp680m"
+path="res://.godot/imported/walker.png-482d5e11406e1da140a3dc8515b4faab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/shuriken.png"
-dest_files=["res://.godot/imported/shuriken.png-3683ffd067da2b40fd37e1d70c66572d.ctex"]
+source_file="res://Entities/Walker/walker.png"
+dest_files=["res://.godot/imported/walker.png-482d5e11406e1da140a3dc8515b4faab.ctex"]
 
 [params]
 
