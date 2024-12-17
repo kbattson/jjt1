@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var main = get_tree().get_root().get_node("Main")
+@onready var root_node = get_tree().root
 @onready var projectile = load("res://Entities/Bullet/bullet.tscn")
 @onready var anim = $AnimatedSprite2D
 @onready var shoot_timer = $ShootTimer
@@ -57,7 +57,7 @@ func shoot():
 	var instance = projectile.instantiate()
 	instance.flip = anim.flip_h
 	instance.spawn_pos = global_position
-	main.add_child.call_deferred(instance)
+	root_node.add_child.call_deferred(instance)
 	on_cooldown = true
 	shoot_timer.start()
 

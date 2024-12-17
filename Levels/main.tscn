@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=4 uid="uid://dhkjsxw6yqcd5"]
+[gd_scene load_steps=11 format=4 uid="uid://dhkjsxw6yqcd5"]
 
 [ext_resource type="PackedScene" uid="uid://baprq14svtfj4" path="res://Entities/Player/player.tscn" id="1_pvgh8"]
-[ext_resource type="Texture2D" uid="uid://b12hqrgsuw82i" path="res://Levels/test_set.png" id="2_et4o8"]
+[ext_resource type="Texture2D" uid="uid://b12hqrgsuw82i" path="res://Levels/TileMaps/test_set.png" id="2_et4o8"]
 [ext_resource type="PackedScene" uid="uid://casvhqr7evvje" path="res://Entities/Spike/spike.tscn" id="3_h1r1j"]
 [ext_resource type="PackedScene" uid="uid://mrpjua8vrjbm" path="res://Entities/Walker/walker.tscn" id="4_04412"]
 [ext_resource type="PackedScene" uid="uid://dbkt5rnxap3mf" path="res://Entities/Wanderer/wanderer.tscn" id="5_hk6aj"]
 [ext_resource type="PackedScene" uid="uid://c6br8gimllhh3" path="res://Entities/Bomber/bomber.tscn" id="6_00cmw"]
 [ext_resource type="PackedScene" uid="uid://dj040dis4gygy" path="res://Entities/Bouncer/bouncer.tscn" id="7_0o42l"]
+[ext_resource type="PackedScene" uid="uid://dg6xeoeca1w6y" path="res://Levels/LevelTransition/level_transition.tscn" id="8_ka08t"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7o36"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wk7rb"]
 texture = ExtResource("2_et4o8")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
@@ -28,7 +29,7 @@ texture_region_size = Vector2i(8, 8)
 tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_r7o36")
+sources/0 = SubResource("TileSetAtlasSource_wk7rb")
 
 [node name="Main" type="Node2D"]
 
@@ -62,3 +63,7 @@ position = Vector2(156, 77)
 
 [node name="Bouncer" parent="." instance=ExtResource("7_0o42l")]
 position = Vector2(16, 8)
+
+[node name="LevelTransition" parent="." instance=ExtResource("8_ka08t")]
+position = Vector2(168, 72)
+next_level = "res://Levels/test.tscn"
