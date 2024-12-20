@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=4 uid="uid://xqguhixclnhw"]
 
-[ext_resource type="PackedScene" uid="uid://bnfdlsxyx0416" path="res://Levels/TileMaps/test_tile_map.tscn" id="1_64w7h"]
-[ext_resource type="PackedScene" uid="uid://baprq14svtfj4" path="res://Entities/Player/player.tscn" id="2_mhlkb"]
+[ext_resource type="PackedScene" uid="uid://bnfdlsxyx0416" path="res://World/TileMaps/test_tile_map.tscn" id="1_mu0r5"]
+[ext_resource type="PackedScene" uid="uid://baprq14svtfj4" path="res://Entities/Player/player.tscn" id="2_ycyf8"]
 
 [node name="Test" type="Node2D"]
 
-[node name="TestTileMap" parent="." instance=ExtResource("1_64w7h")]
+[node name="TestTileMap" parent="." instance=ExtResource("1_mu0r5")]
 tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAcAAAAAAAAAAAALAAcAAAAAAAAAAAAMAAcAAAAAAAAAAAANAAcAAAAAAAAAAAAOAAcAAAAAAAAAAAAPAAcAAAAAAAAAAAAQAAcAAAAAAAAAAAARAAcAAAAAAAAAAAASAAcAAAAAAAAAAAA=")
 
-[node name="Player" parent="." instance=ExtResource("2_mhlkb")]
+[node name="Player" parent="." instance=ExtResource("2_ycyf8")]
 position = Vector2(24, 0)

@@ -4,14 +4,13 @@
 [ext_resource type="Script" path="res://Entities/Bomber/bomber.gd" id="1_k4dh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cg5j2"]
-size = Vector2(4, 4)
+size = Vector2(6, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwsoa"]
 size = Vector2(8, 8)
 
-[node name="Bomber" type="StaticBody2D"]
+[node name="Bomber" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 0
 script = ExtResource("1_k4dh5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

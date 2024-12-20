@@ -1,16 +1,17 @@
-[gd_scene load_steps=11 format=4 uid="uid://dhkjsxw6yqcd5"]
+[gd_scene load_steps=12 format=4 uid="uid://dhkjsxw6yqcd5"]
 
-[ext_resource type="PackedScene" uid="uid://baprq14svtfj4" path="res://Entities/Player/player.tscn" id="1_pvgh8"]
-[ext_resource type="Texture2D" uid="uid://b12hqrgsuw82i" path="res://Levels/TileMaps/test_set.png" id="2_et4o8"]
-[ext_resource type="PackedScene" uid="uid://casvhqr7evvje" path="res://Entities/Spike/spike.tscn" id="3_h1r1j"]
-[ext_resource type="PackedScene" uid="uid://mrpjua8vrjbm" path="res://Entities/Walker/walker.tscn" id="4_04412"]
-[ext_resource type="PackedScene" uid="uid://dbkt5rnxap3mf" path="res://Entities/Wanderer/wanderer.tscn" id="5_hk6aj"]
-[ext_resource type="PackedScene" uid="uid://c6br8gimllhh3" path="res://Entities/Bomber/bomber.tscn" id="6_00cmw"]
-[ext_resource type="PackedScene" uid="uid://dj040dis4gygy" path="res://Entities/Bouncer/bouncer.tscn" id="7_0o42l"]
-[ext_resource type="PackedScene" uid="uid://dg6xeoeca1w6y" path="res://Levels/LevelTransition/level_transition.tscn" id="8_ka08t"]
+[ext_resource type="PackedScene" uid="uid://baprq14svtfj4" path="res://Entities/Player/player.tscn" id="1_q0tjs"]
+[ext_resource type="Texture2D" uid="uid://b12hqrgsuw82i" path="res://World/TileMaps/test_set.png" id="2_j4n7g"]
+[ext_resource type="PackedScene" uid="uid://casvhqr7evvje" path="res://Entities/Spike/spike.tscn" id="3_7uo55"]
+[ext_resource type="PackedScene" uid="uid://mrpjua8vrjbm" path="res://Entities/Walker/walker.tscn" id="4_yfvyo"]
+[ext_resource type="PackedScene" uid="uid://dbkt5rnxap3mf" path="res://Entities/Wanderer/wanderer.tscn" id="5_c3iho"]
+[ext_resource type="PackedScene" uid="uid://c6br8gimllhh3" path="res://Entities/Bomber/bomber.tscn" id="6_5iy2n"]
+[ext_resource type="PackedScene" uid="uid://dj040dis4gygy" path="res://Entities/Bouncer/bouncer.tscn" id="7_wnw10"]
+[ext_resource type="PackedScene" uid="uid://dg6xeoeca1w6y" path="res://World/LevelTransition/level_transition.tscn" id="8_skh3a"]
+[ext_resource type="PackedScene" uid="uid://brhn0u3dxn2p5" path="res://World/MovingPlatform/moving_platform.tscn" id="9_1kqj6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wk7rb"]
-texture = ExtResource("2_et4o8")
+texture = ExtResource("2_j4n7g")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -33,37 +34,52 @@ sources/0 = SubResource("TileSetAtlasSource_wk7rb")
 
 [node name="Main" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_pvgh8")]
+[node name="Player" parent="." instance=ExtResource("1_q0tjs")]
 position = Vector2(32, 48)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -10)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_vertical_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAsAAAABAAAAAAABAAsAAAABAAAAAAACAAsAAAABAAAAAAADAAsAAAABAAAAAAAEAAsAAAABAAAAAAAFAAsAAAABAAAAAAAGAAsAAAABAAAAAAAHAAsAAAABAAAAAAAIAAsAAAABAAAAAAAJAAsAAAABAAAAAAAKAAsAAAABAAAAAAALAAsAAAABAAAAAAAMAAsAAAABAAAAAAATAAsAAAABAAAAAAANAAsAAAABAAAAAAAOAAsAAAABAAAAAAAPAAsAAAABAAAAAAALAAgAAAABAAAAAAAMAAgAAAABAAAAAAANAAUAAAABAAAAAAAOAAUAAAABAAAAAAAPAAUAAAABAAAAAAAQAAUAAAABAAAAAAAKAAgAAAABAAAAAAAKAAEAAAABAAAAAAALAAEAAAABAAAAAAAMAAEAAAABAAAAAAANAAgAAAABAAAAAAAGAAkAAAADAAAAAAAFAAkAAAADAAAAAAAEAAkAAAADAAAAAAADAAkAAAABAAAAAAACAAkAAAABAAAAAAAHAAkAAAABAAAAAAAEAAYAAAACAAAAAAAFAAYAAAACAAAAAAAGAAYAAAACAAAAAAADAAYAAAABAAEAAAAPAAoAAAAAAAAAAAAQAAsAAAADAAAAAAARAAsAAAADAAAAAAASAAsAAAADAAAAAAATAAoAAAAAAAAAAAAUAAsAAAAAAAAAAAD//wsAAAAAAAAAAAD//woAAAAAAAAAAAD//wkAAAAAAAAAAAD//wgAAAAAAAAAAAD//wcAAAAAAAAAAAD//wYAAAAAAAAAAAD//wUAAAAAAAAAAAD//wQAAAAAAAAAAAD//wMAAAAAAAAAAAD//wIAAAAAAAAAAAD//wEAAAAAAAAAAAD//wAAAAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAAOAP//AAAAAAAAAAAVAAsAAAAAAAAAAAAVAAoAAAAAAAAAAAAVAAkAAAAAAAAAAAAVAAgAAAAAAAAAAAAVAAcAAAAAAAAAAAAVAAYAAAAAAAAAAAAVAAUAAAAAAAAAAAAVAAQAAAAAAAAAAAAVAAMAAAAAAAAAAAAVAAIAAAAAAAAAAAAVAAEAAAAAAAAAAAAVAAAAAAAAAAAAAAAVAP//AAAAAAAAAAAUAP//AAAAAAAAAAATAP//AAAAAAAAAAASAP//AAAAAAAAAAARAP//AAAAAAAAAAAQAP//AAAAAAAAAAAPAP//AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ejj0i")
 
-[node name="Spike" parent="." instance=ExtResource("3_h1r1j")]
+[node name="Spike" parent="." instance=ExtResource("3_7uo55")]
 position = Vector2(128, 80)
 
-[node name="Spike2" parent="." instance=ExtResource("3_h1r1j")]
+[node name="Spike2" parent="." instance=ExtResource("3_7uo55")]
 position = Vector2(136, 80)
 
-[node name="Walker" parent="." instance=ExtResource("4_04412")]
+[node name="Walker" parent="." instance=ExtResource("4_yfvyo")]
 position = Vector2(104, 32)
 
-[node name="Walker2" parent="." instance=ExtResource("4_04412")]
+[node name="Walker2" parent="." instance=ExtResource("4_yfvyo")]
 position = Vector2(8, 80)
 
-[node name="Walker3" parent="." instance=ExtResource("4_04412")]
-position = Vector2(104, 80)
+[node name="Walker3" parent="." instance=ExtResource("4_yfvyo")]
+position = Vector2(92, 55)
 
-[node name="Wanderer" parent="." instance=ExtResource("5_hk6aj")]
+[node name="Wanderer" parent="." instance=ExtResource("5_c3iho")]
 position = Vector2(56, 8)
 
-[node name="Bomber" parent="." instance=ExtResource("6_00cmw")]
-position = Vector2(156, 77)
+[node name="Bomber2" parent="." instance=ExtResource("6_5iy2n")]
+position = Vector2(20, 27)
 
-[node name="Bouncer" parent="." instance=ExtResource("7_0o42l")]
+[node name="Bomber" parent="." instance=ExtResource("6_5iy2n")]
+position = Vector2(156, 76)
+
+[node name="Bouncer" parent="." instance=ExtResource("7_wnw10")]
 position = Vector2(16, 8)
 
-[node name="LevelTransition" parent="." instance=ExtResource("8_ka08t")]
+[node name="LevelTransition" parent="." instance=ExtResource("8_skh3a")]
 position = Vector2(168, 72)
-next_level = "res://Levels/test.tscn"
+next_level = "res://World/Levels/test.tscn"
+
+[node name="MovingPlatform" parent="." instance=ExtResource("9_1kqj6")]
+position = Vector2(8, 32)
+speed = 10.0
+waypoints = Array[Vector2]([Vector2(8, 32), Vector2(72, 32)])

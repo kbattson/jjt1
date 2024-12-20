@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends CharacterBody2D
 
 @onready var main = get_tree().get_root().get_node("Main")
 @onready var bomb = load("res://Entities/Bomber/bomb.tscn")
@@ -8,6 +8,10 @@ var health : int = 2
 
 func _ready() -> void:
 	rotation_degrees = -105
+	
+func _physics_process(_delta):
+	velocity += get_gravity()
+	move_and_slide()
 
 func shoot():
 	var instance = bomb.instantiate()
@@ -19,7 +23,6 @@ func shoot():
 
 func _on_spawn_timer_timeout() -> void:
 	shoot()
-
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	body.queue_free()

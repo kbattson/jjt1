@@ -1,7 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://baprq14svtfj4"]
+[gd_scene load_steps=19 format=3 uid="uid://baprq14svtfj4"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_f0bd8"]
 [ext_resource type="Texture2D" uid="uid://4yq8hw4oq8y" path="res://Entities/Player/player.png" id="1_gx1qv"]
+[ext_resource type="Script" path="res://Entities/Player/ui.gd" id="3_hu0ih"]
+[ext_resource type="FontFile" uid="uid://d2xk6epfeb0ag" path="res://Global/m3x6.ttf" id="5_gncjw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3tcl"]
 size = Vector2(3, 8)
@@ -133,11 +135,41 @@ wait_time = 0.27
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 260
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_cnesx")
 
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("3_hu0ih")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="HeartContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="CoinContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(6, 0)
+layout_mode = 2
+
+[node name="Count" type="Label" parent="UI/MarginContainer/VBoxContainer/CoinContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("5_gncjw")
+theme_override_font_sizes/font_size = 11
+text = "0"
+
+[connection signal="update_coins" from="." to="UI" method="_on_player_update_coins"]
+[connection signal="update_health" from="." to="UI" method="_on_player_update_health"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_cooldown_timeout"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

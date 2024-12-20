@@ -6,10 +6,17 @@ extends CharacterBody2D
 @onready var shoot_timer = $ShootTimer
 
 const SPEED : float = 40.0
-const JUMP_VELOCITY : float = -160.0
+const JUMP_VELOCITY : float = -140.0
 const FALL_GRAVITY_MULT : Vector2 = Vector2(1, 1.5)
 
+signal update_health(new_health: int)
+
+signal update_coins(new_coins: int)
+
 var on_cooldown : bool = false
+
+func _ready():
+	reset_health()
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -66,7 +73,26 @@ func _on_shoot_cooldown_timeout():
 	
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"):
-		global_position = Vector2(10, 10)
+		take_damage()
+	
+	if body.is_in_group("Coin"):
+		body.queue_free()
+		Global.player_coins += 1
+		update_coins.emit(Global.player_coins)
+		
+func take_damage():
+	Global.player_curr_hp -= 1
+	Global.player_curr_hp = max(Global.player_curr_hp, 0)
+	update_health.emit(Global.player_curr_hp)
+	
+func heal():
+	Global.player_curr_hp += 1
+	Global.player_curr_hp = min(Global.player_curr_hp, Global.player_max_hp)
+	update_health.emit(Global.player_curr_hp)
+	
+func reset_health():
+	Global.player_curr_hp = Global.player_max_hp
+	update_health.emit(Global.player_curr_hp)
 	
 	
 	

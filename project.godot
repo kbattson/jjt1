@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="jjt1"
-run/main_scene="res://Levels/main.tscn"
+run/main_scene="res://World/Levels/room_1.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+
+[autoload]
+
+Global="*res://Global/global.gd"
 
 [display]
 
@@ -23,10 +27,21 @@ window/size/window_width_override=1600
 window/size/window_height_override=1000
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://Entities/": "red",
+"res://Global/": "green",
+"res://Sprites/": "gray",
+"res://UI/": "yellow",
+"res://World/": "blue"
+}
+
 [global_group]
 
 Enemy=""
 Projectile=""
+Coin=""
 
 [input]
 
@@ -62,6 +77,7 @@ down={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="Projectile"
+2d_physics/layer_9="Coin"
 
 [physics]
 

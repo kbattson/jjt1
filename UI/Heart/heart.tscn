@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://wvgs81vcrvrv"]
+
+[ext_resource type="Texture2D" uid="uid://c7tqbnekoso3w" path="res://UI/Heart/heart.png" id="1_ea2dr"]
+
+[node name="Heart" type="TextureRect"]
+offset_right = 7.0
+offset_bottom = 7.0
+texture = ExtResource("1_ea2dr")
+stretch_mode = 4

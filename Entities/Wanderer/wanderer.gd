@@ -4,6 +4,8 @@ const SPEED : float = 20.0
 
 @onready var direction_timer = $DirectionTimer
 
+@onready var coin = load("res://Entities/Coin/coin.tscn")
+
 func _ready():
 	_on_direction_timer_timeout()
 
@@ -20,3 +22,10 @@ func _on_direction_timer_timeout() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	body.queue_free()
 	queue_free()
+	spawn_coins(1)
+	
+func spawn_coins(amount: int):
+	for i in range(amount):
+		var instance = coin.instantiate()
+		instance.spawn_pos = global_position
+		get_tree().root.add_child.call_deferred(instance)

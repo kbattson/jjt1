@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const SPEED : float = 300.0
+const SPEED : float = 150.0
 
 @onready var explode_timer = $ExplosionTimer
 @onready var duration_timer = $ExplodeDurationTimer
