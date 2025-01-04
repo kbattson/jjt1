@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctsf57lw3565l"]
+
+[ext_resource type="Script" path="res://Global/boss_ball.gd" id="1_fbxxa"]
+[ext_resource type="Texture2D" uid="uid://cjj0f4q3lsgj8" path="res://Assets/boss_ball.png" id="2_ok0xm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swkmk"]
+size = Vector2(8, 4)
+
+[node name="boss_ball" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+script = ExtResource("1_fbxxa")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ok0xm")
+
+[node name="collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_swkmk")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://i3exxn3vq6s"]
+
+[ext_resource type="Script" path="res://audio/sound_manager.gd" id="1_byoi2"]
+[ext_resource type="AudioStream" uid="uid://c6unyr0aj0gys" path="res://audio/laser_shoot.wav" id="2_kndsx"]
+[ext_resource type="AudioStream" uid="uid://fnek08yc0gcu" path="res://audio/hit.wav" id="3_dg3yo"]
+[ext_resource type="AudioStream" uid="uid://barfpnv7xptj2" path="res://audio/click.wav" id="4_a1qk2"]
+[ext_resource type="AudioStream" uid="uid://i3uvt1wwja01" path="res://audio/explosion.wav" id="5_hoycp"]
+[ext_resource type="AudioStream" uid="uid://dfvx7da0qelnw" path="res://audio/explosion (1).wav" id="6_hq72o"]
+[ext_resource type="AudioStream" uid="uid://dlrmt4j8vbltd" path="res://audio/explosion (2).wav" id="7_0ft6c"]
+[ext_resource type="AudioStream" uid="uid://cdrjtbsg2ugrh" path="res://audio/death_sound.wav" id="8_ljjf6"]
+[ext_resource type="AudioStream" uid="uid://dq1emttp1p0cl" path="res://audio/hitHurt (2).wav" id="9_81wro"]
+
+[node name="sound_manager" type="Node"]
+script = ExtResource("1_byoi2")
+
+[node name="shoot_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_kndsx")
+volume_db = -30.0
+
+[node name="hit_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dg3yo")
+volume_db = -40.0
+pitch_scale = 0.4
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_a1qk2")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hoycp")
+volume_db = -25.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_hq72o")
+volume_db = -25.0
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_0ft6c")
+volume_db = -25.0
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ljjf6")
+volume_db = -30.0
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_81wro")
+volume_db = -30.0

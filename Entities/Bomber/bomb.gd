@@ -21,4 +21,5 @@ func _on_explosion_timer_timeout() -> void:
 	duration_timer.start()
 
 func _on_explode_duration_timer_timeout() -> void:
+	Global.spawn_coins(global_position, 1)
 	queue_free()

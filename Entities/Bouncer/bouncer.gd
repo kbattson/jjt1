@@ -10,6 +10,8 @@ var health : int = 2
 var initial_velocity : Vector2 = Vector2(1,0.1)
 
 func _ready():
+	if randf() < 0.5:
+		initial_velocity.y *= -1
 	velocity = initial_velocity * SPEED
 
 func _physics_process(delta):
@@ -21,14 +23,12 @@ func _physics_process(delta):
 
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
+	SoundManager.hit()
 	body.queue_free()
+	var tween: Tween = create_tween()
+	tween.tween_property($Sprite2D, "modulate:v", 1, 0.1).from(15)
 	health -= 1
 	if health == 0:
-		spawn_coins(1)
+		await get_tree().create_timer(0.05).timeout
+		Global.spawn_coins(global_position, randi_range(0, 1))
 		queue_free()
-		
-func spawn_coins(amount: int):
-	for i in range(amount):
-		var instance = coin.instantiate()
-		instance.spawn_pos = global_position
-		get_tree().root.add_child.call_deferred(instance)

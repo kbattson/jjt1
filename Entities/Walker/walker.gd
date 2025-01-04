@@ -9,15 +9,25 @@ var flipped : bool = false
 @onready var ahead_cast = $AheadCast
 @onready var down_cast = $DownCast
 @onready var anim = $AnimatedSprite2D
-
 @onready var coin = load("res://Entities/Coin/coin.tscn")
 
+var spawn_pos_enabled: bool = false
+var spawn_pos: Vector2
+
+func _ready():
+	if spawn_pos_enabled:
+		global_position = spawn_pos
+
 func _on_hurtbox_body_entered(body: Node2D) -> void:
+	SoundManager.hit()
 	if body.is_in_group("Projectile"):
 		body.queue_free()
 		health -= 1
+		var tween: Tween = create_tween()
+		tween.tween_property($AnimatedSprite2D, "modulate:v", 1, 0.1).from(15)
 		if health == 0:
-			spawn_coins(int(randf() * 2) + 1)
+			await get_tree().create_timer(0.05).timeout
+			Global.spawn_coins(global_position, randi_range(1, 2))
 			queue_free()
 			
 func _physics_process(delta):
@@ -38,9 +48,3 @@ func flip():
 		anim.flip_h = false
 		down_cast.position.x += OFFSET
 		ahead_cast.scale.x *= -1
-		
-func spawn_coins(amount: int):
-	for i in range(amount):
-		var instance = coin.instantiate()
-		instance.spawn_pos = global_position
-		get_tree().root.add_child.call_deferred(instance)

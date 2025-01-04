@@ -1,11 +1,22 @@
 extends AnimatableBody2D
 
-@export var speed: float = 100.0  # Movement speed
-@export var waypoints: Array[Vector2] = [Vector2(0, 0), Vector2(200, 0)]  # Movement points
+@export var speed: float = 0.0  # Movement speed
+@export var waypoints: Array[Vector2] = [Vector2(0, 0), Vector2(0, 0)]  # Movement points
 @export var loop: bool = true  # Should the platform loop?
+
+@export var num_of_tiles: int
 
 var current_index: int = 0  # Current target waypoint
 var moving_forward: bool = true
+
+
+func _ready():
+	if num_of_tiles <= 2:
+		$Sprite2D3.visible = false
+		$CollisionShape2D3.disabled = true
+	if num_of_tiles == 1:
+		$Sprite2D2.visible = false
+		$CollisionShape2D2.disabled = true
 
 func _physics_process(delta: float):
 	if waypoints.size() < 2:

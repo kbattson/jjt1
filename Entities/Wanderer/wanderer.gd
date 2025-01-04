@@ -6,7 +6,12 @@ const SPEED : float = 20.0
 
 @onready var coin = load("res://Entities/Coin/coin.tscn")
 
+var spawn_pos_enabled: bool = false
+var spawn_pos: Vector2
+
 func _ready():
+	if spawn_pos_enabled:
+		global_position = spawn_pos
 	_on_direction_timer_timeout()
 
 func _physics_process(delta):
@@ -20,12 +25,11 @@ func _on_direction_timer_timeout() -> void:
 	direction_timer.start()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	SoundManager.hit()
 	body.queue_free()
+	var tween: Tween = create_tween()
+	tween.tween_property($Sprite2D, "modulate:v", 1, 0.1).from(15)
+	await get_tree().create_timer(0.05).timeout
 	queue_free()
-	spawn_coins(1)
+	Global.spawn_coins(global_position, 1)
 	
-func spawn_coins(amount: int):
-	for i in range(amount):
-		var instance = coin.instantiate()
-		instance.spawn_pos = global_position
-		get_tree().root.add_child.call_deferred(instance)

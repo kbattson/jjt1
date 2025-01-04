@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dclhv2i7n5pcd"]
+
+[ext_resource type="Script" path="res://Entities/CoinNode/coin_node.gd" id="1_70rwy"]
+[ext_resource type="Texture2D" uid="uid://c6hkf1ch5eff0" path="res://Entities/CoinNode/coin_node.png" id="2_ns38x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf6pa"]
+size = Vector2(4, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e66a3"]
+size = Vector2(6, 7)
+
+[node name="CoinNode" type="RigidBody2D"]
+position = Vector2(-4, -4)
+collision_layer = 0
+script = ExtResource("1_70rwy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 4)
+texture = ExtResource("2_ns38x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 5)
+shape = SubResource("RectangleShape2D_mf6pa")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_e66a3")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

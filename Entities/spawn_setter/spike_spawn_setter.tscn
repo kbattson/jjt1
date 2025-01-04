@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0nnon5umbpvw"]
+
+[ext_resource type="Script" path="res://Entities/spawn_setter/spike_spawn_setter.gd" id="1_gfm4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufg2f"]
+size = Vector2(32, 32)
+
+[node name="spike_spawn_setter" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_gfm4l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ufg2f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

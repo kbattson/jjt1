@@ -1,14 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://baprq14svtfj4"]
+[gd_scene load_steps=16 format=3 uid="uid://baprq14svtfj4"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_f0bd8"]
 [ext_resource type="Texture2D" uid="uid://4yq8hw4oq8y" path="res://Entities/Player/player.png" id="1_gx1qv"]
 [ext_resource type="Script" path="res://Entities/Player/ui.gd" id="3_hu0ih"]
 [ext_resource type="FontFile" uid="uid://d2xk6epfeb0ag" path="res://Global/m3x6.ttf" id="5_gncjw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3tcl"]
-size = Vector2(3, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_83s6u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bujwm"]
 atlas = ExtResource("1_gx1qv")
 region = Rect2(112, 0, 16, 16)
 
@@ -40,26 +37,14 @@ region = Rect2(80, 0, 16, 16)
 atlas = ExtResource("1_gx1qv")
 region = Rect2(96, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c4h7e"]
-atlas = ExtResource("1_gx1qv")
-region = Rect2(128, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y1mew"]
-atlas = ExtResource("1_gx1qv")
-region = Rect2(144, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_drppk"]
-atlas = ExtResource("1_gx1qv")
-region = Rect2(160, 0, 16, 16)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_2vigw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_83s6u")
+"texture": SubResource("AtlasTexture_bujwm")
 }],
 "loop": true,
-"name": &"crouch",
+"name": &"hit_flash",
 "speed": 5.0
 }, {
 "frames": [{
@@ -97,32 +82,18 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c4h7e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y1mew")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_drppk")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3tcl"]
+size = Vector2(3, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cnesx"]
 size = Vector2(6, 8)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D"]
+top_level = true
 collision_layer = 2
 script = ExtResource("1_f0bd8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_c3tcl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
@@ -130,8 +101,20 @@ sprite_frames = SubResource("SpriteFrames_2vigw")
 animation = &"idle"
 autoplay = "idle"
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_c3tcl")
+
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 0.27
+
+[node name="hit_cooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="coyote_timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 0
@@ -172,4 +155,6 @@ text = "0"
 [connection signal="update_coins" from="." to="UI" method="_on_player_update_coins"]
 [connection signal="update_health" from="." to="UI" method="_on_player_update_health"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_cooldown_timeout"]
+[connection signal="timeout" from="hit_cooldown" to="." method="_on_hit_cooldown_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

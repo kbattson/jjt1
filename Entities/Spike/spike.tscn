@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Entities/Spike/spike.gd" id="1_2qstw"]
 [ext_resource type="Texture2D" uid="uid://b12hqrgsuw82i" path="res://World/TileMaps/test_set.png" id="1_iqcth"]
 
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ttcj1"]
 atlas = ExtResource("1_iqcth")
 region = Rect2(8, 24, 8, 8)
@@ -29,10 +28,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y6el"]
 size = Vector2(6, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oobay"]
-size = Vector2(8, 2)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3aem0"]
+size = Vector2(8, 4)
 
-[node name="Spike" type="StaticBody2D" groups=["Enemy"]]
+[node name="Spike" type="StaticBody2D" groups=["Enemy", "spike"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_2qstw")
@@ -46,12 +45,12 @@ frame_progress = 0.41159
 position = Vector2(4, 7)
 shape = SubResource("RectangleShape2D_2y6el")
 
-[node name="Hurtbox" type="Area2D" parent="." groups=["Enemy"]]
+[node name="coin_area" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 256
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(4, 7)
-shape = SubResource("RectangleShape2D_oobay")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin_area"]
+position = Vector2(4, 6)
+shape = SubResource("RectangleShape2D_3aem0")
 
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_entered" from="coin_area" to="." method="_on_coin_area_body_entered"]

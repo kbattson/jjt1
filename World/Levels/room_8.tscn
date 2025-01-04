@@ -1,0 +1,132 @@
+[gd_scene load_steps=12 format=4 uid="uid://blm7l0c1bva7n"]
+
+[ext_resource type="Script" path="res://World/Levels/scripts/room_8.gd" id="1_a71tb"]
+[ext_resource type="PackedScene" uid="uid://baprq14svtfj4" path="res://Entities/Player/player.tscn" id="1_kgydc"]
+[ext_resource type="PackedScene" uid="uid://casvhqr7evvje" path="res://Entities/Spike/spike.tscn" id="3_yll55"]
+[ext_resource type="Texture2D" uid="uid://bfffgu4a67h5q" path="res://World/key_hole.png" id="5_okpr8"]
+[ext_resource type="PackedScene" uid="uid://dg6xeoeca1w6y" path="res://World/LevelTransition/level_transition.tscn" id="6_qyakt"]
+[ext_resource type="PackedScene" uid="uid://btm8i7kyj8h2" path="res://World/TileMaps/tile_map.tscn" id="7_6xcqq"]
+[ext_resource type="PackedScene" uid="uid://d0nnon5umbpvw" path="res://Entities/spawn_setter/spike_spawn_setter.tscn" id="7_10026"]
+[ext_resource type="Texture2D" uid="uid://bbqkirk4whlsw" path="res://UI/Heart/heart.png" id="8_uyuqc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7u6xc"]
+size = Vector2(6, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7u0j"]
+size = Vector2(3, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5il2i"]
+size = Vector2(6, 6)
+
+[node name="room_8" type="Node2D"]
+script = ExtResource("1_a71tb")
+
+[node name="player" parent="." instance=ExtResource("1_kgydc")]
+position = Vector2(5, 27)
+
+[node name="player_camera" type="Camera2D" parent="player"]
+process_callback = 0
+limit_left = 0
+limit_top = -32
+limit_right = 192
+limit_bottom = 72
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_vertical_enabled = true
+
+[node name="tile_map" parent="." instance=ExtResource("7_6xcqq")]
+tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAUAAQAAAAAAAAAAAAUAAAAAAAAAAAAAAAUAPz/AAAAAAAAAAAFAPz/AAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPz/AAAAAAAAAAAAAAgAAAAAAAAAAAABAAgAAAABAAAAAAACAAgAAAABAAAAAAADAAgAAAABAAAAAAAEAAgAAAABAAAAAAAGAAgAAAABAAAAAAAHAAgAAAABAAAAAAAIAAgAAAABAAAAAAAJAAgAAAABAAAAAAAKAAgAAAABAAAAAAALAAgAAAABAAAAAAAMAAgAAAABAAAAAAANAAgAAAABAAAAAAAOAAgAAAABAAAAAAAPAAgAAAABAAAAAAAQAAgAAAABAAAAAAARAAgAAAABAAAAAAASAAgAAAABAAAAAAATAAgAAAABAAAAAAAGAPz/AAABAAAAAAAHAPz/AAABAAAAAAAIAPz/AAABAAAAAAAJAPz/AAABAAAAAAAKAPz/AAABAAAAAAALAPz/AAABAAAAAAAMAPz/AAABAAAAAAANAPz/AAABAAAAAAAOAPz/AAABAAAAAAAPAPz/AAABAAAAAAAQAPz/AAABAAAAAAARAPz/AAABAAAAAAASAPz/AAABAAAAAAATAPz/AAABAAAAAAABAPz/AAABAAAAAAACAPz/AAABAAAAAAADAPz/AAABAAAAAAAEAPz/AAABAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAABAAAAAAADAAQAAAABAAAAAAAEAAQAAAABAAAAAAAAAAcAAAACAAAAAAAAAAYAAAACAAAAAAAAAAUAAAACAAAAAAAAAP//AAACAAAAAAAAAP7/AAACAAAAAAAAAP3/AAACAAAAAAAFAP//AAACAAAAAAAFAP7/AAACAAAAAAAFAP3/AAACAAAAAAAFAAcAAAACAAAAAAAFAAYAAAACAAAAAAAFAAUAAAACAAAAAAAUAAcAAAACAAAAAAAUAAYAAAACAAAAAAAUAAUAAAACAAAAAAAUAAMAAAACAAAAAAAUAAIAAAACAAAAAAAUAAEAAAACAAAAAAAUAP//AAACAAAAAAAUAP7/AAACAAAAAAAUAP3/AAACAAAAAAABAAUAAAACAAEAAAABAAYAAAACAAEAAAACAAYAAAACAAEAAAACAAUAAAACAAEAAAACAAcAAAACAAEAAAABAAcAAAAAAAEAAAADAAcAAAACAAEAAAADAAYAAAACAAEAAAADAAUAAAACAAEAAAAEAAYAAAACAAEAAAAEAAcAAAAAAAEAAAAEAAUAAAACAAEAAAAEAP//AAACAAEAAAAEAP7/AAACAAEAAAAEAP3/AAACAAEAAAADAP3/AAACAAEAAAADAP7/AAACAAEAAAADAP//AAACAAEAAAACAP//AAACAAEAAAACAP7/AAACAAEAAAACAP3/AAAAAAEAAAABAP3/AAAAAAEAAAABAP7/AAACAAEAAAABAP//AAACAAEAAAAGAAQAAAACAAQAAAATAAQAAAACAAQAAAAHAAYAAAABAAQAAAAIAAYAAAABAAQAAAALAAYAAAABAAQAAAAMAAYAAAABAAQAAAANAAYAAAABAAQAAAAOAAYAAAABAAQAAAARAAYAAAABAAQAAAASAAYAAAABAAQAAAAPAAQAAAAAAAQAAAAQAAQAAAAAAAQAAAAJAAQAAAAAAAQAAAAKAAQAAAAAAAQAAAALAAEAAAABAAQAAAAMAAEAAAABAAQAAAANAAEAAAABAAQAAAAOAAEAAAABAAQAAAARAP//AAABAAQAAAASAP//AAABAAQAAAAIAP//AAABAAQAAAAHAP//AAABAAQAAAAVAAQAAAABAAAAAAAWAAQAAAABAAAAAAAXAAQAAAABAAAAAAAYAAQAAAABAAAAAAAVAAgAAAABAAAAAAAWAAgAAAABAAAAAAAXAAgAAAABAAAAAAAYAAgAAAABAAAAAAAVAAAAAAABAAAAAAAWAAAAAAABAAAAAAAXAAAAAAABAAAAAAAYAAAAAAABAAAAAAAVAPz/AAABAAAAAAAWAPz/AAABAAAAAAAXAPz/AAABAAAAAAAYAPz/AAABAAAAAAAZAAQAAAAAAAAAAAAZAAAAAAAAAAAAAAAZAPz/AAAAAAAAAAAZAAgAAAAAAAAAAAAZAAcAAAACAAAAAAAZAAYAAAACAAAAAAAZAAUAAAACAAAAAAAZAAMAAAACAAAAAAAZAAIAAAACAAAAAAAZAAEAAAACAAAAAAAZAP//AAACAAAAAAAZAP7/AAACAAAAAAAZAP3/AAACAAAAAAAVAAMAAAACAAEAAAAVAAIAAAACAAEAAAAVAAEAAAACAAEAAAAWAAEAAAACAAEAAAAWAAIAAAACAAEAAAAWAAMAAAACAAEAAAAXAAEAAAACAAEAAAAXAAIAAAACAAEAAAAXAAMAAAAAAAEAAAAYAAMAAAAAAAEAAAAYAAIAAAACAAEAAAAYAAEAAAACAAEAAAAVAP//AAACAAEAAAAVAP7/AAAAAAEAAAAVAP3/AAAAAAEAAAAWAP3/AAACAAEAAAAWAP7/AAAAAAEAAAAWAP//AAACAAEAAAAXAP7/AAACAAEAAAAXAP3/AAACAAEAAAAYAP7/AAACAAEAAAAYAP//AAACAAEAAAAXAP//AAACAAEAAAAYAP3/AAACAAEAAAAVAAUAAAACAAEAAAAVAAYAAAACAAEAAAAVAAcAAAACAAEAAAAWAAcAAAACAAEAAAAWAAYAAAACAAEAAAAWAAUAAAACAAEAAAAXAAYAAAACAAEAAAAXAAcAAAACAAEAAAAYAAYAAAACAAEAAAAYAAUAAAACAAEAAAAXAAUAAAACAAEAAAAYAAcAAAAAAAEAAAD//wQAAAAAAAEAAAD+/wQAAAAAAAEAAAD9/wQAAAAAAAEAAAD8/wQAAAAAAAEAAAA=")
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="doors" type="Node" parent="."]
+
+[node name="LevelTransition" parent="doors" instance=ExtResource("6_qyakt")]
+position = Vector2(0, 19)
+next_level = "res://World/Levels/room_7.tscn"
+spawn_pos = Vector2(-5, 291)
+
+[node name="locked_area" type="Area2D" parent="."]
+position = Vector2(49, 20)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="locked_area"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_7u6xc")
+
+[node name="locked_wall" type="StaticBody2D" parent="."]
+position = Vector2(31, -64)
+
+[node name="Sprite2D" type="Sprite2D" parent="locked_wall"]
+texture = ExtResource("5_okpr8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="locked_wall"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_o7u0j")
+
+[node name="spikes" type="Node" parent="."]
+
+[node name="Spike" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(48, 56)
+
+[node name="Spike2" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(56, 56)
+
+[node name="Spike3" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(64, 56)
+
+[node name="Spike4" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(72, 56)
+
+[node name="Spike5" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(80, 56)
+
+[node name="Spike6" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(88, 56)
+
+[node name="Spike7" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(96, 56)
+
+[node name="Spike8" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(104, 56)
+
+[node name="Spike9" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(112, 56)
+
+[node name="Spike10" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(120, 56)
+
+[node name="Spike11" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(128, 56)
+
+[node name="Spike12" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(136, 56)
+
+[node name="Spike13" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(144, 56)
+
+[node name="Spike14" parent="spikes" instance=ExtResource("3_yll55")]
+position = Vector2(152, 56)
+
+[node name="spike_spawn_setter" parent="." instance=ExtResource("7_10026")]
+position = Vector2(48, 24)
+
+[node name="spike_spawn_setter2" parent="." instance=ExtResource("7_10026")]
+position = Vector2(104, 40)
+
+[node name="heart_area" type="Area2D" parent="."]
+position = Vector2(103, -55)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="heart_area"]
+texture = ExtResource("8_uyuqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="heart_area"]
+shape = SubResource("RectangleShape2D_5il2i")
+
+[connection signal="child_exiting_tree" from="enemies" to="." method="_on_enemies_child_exiting_tree"]
+[connection signal="body_entered" from="locked_area" to="." method="_on_locked_area_body_entered"]
+[connection signal="body_entered" from="heart_area" to="." method="_on_heart_area_body_entered"]

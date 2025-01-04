@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://p42jlgkmsutn"]
+
+[ext_resource type="Script" path="res://Entities/Shooter/shooter.gd" id="1_6mffi"]
+[ext_resource type="Texture2D" uid="uid://cqsxdpwocglvh" path="res://Entities/Shooter/Sprite-0005.png" id="2_cki4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1px3"]
+size = Vector2(2, 5.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uswsp"]
+size = Vector2(6, 7)
+
+[node name="Shooter" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+script = ExtResource("1_6mffi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cki4x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_q1px3")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_uswsp")
+
+[node name="BulletSpawn" type="Marker2D" parent="."]
+position = Vector2(-4, -1)
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

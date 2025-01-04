@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://fxbkev7a84gs"]
+
+[ext_resource type="Script" path="res://falling_ball.gd" id="1_mwfil"]
+[ext_resource type="Texture2D" uid="uid://bb3cuckpud8ae" path="res://Assets/falling_ball.png" id="2_ay21w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cdff7"]
+radius = 2.0
+
+[node name="falling_ball" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+script = ExtResource("1_mwfil")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ay21w")
+
+[node name="collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cdff7")

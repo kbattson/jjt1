@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2wp7svjawkoq"]
+
+[ext_resource type="Script" path="res://Entities/Shooter/shooter_bullet.gd" id="1_s77cu"]
+[ext_resource type="Texture2D" uid="uid://g8ui01tece7u" path="res://Entities/Shooter/bullet.png" id="1_ul7pn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1uwl"]
+size = Vector2(2, 2)
+
+[node name="ShooterBullet" type="RigidBody2D" groups=["Enemy"]]
+position = Vector2(2, 0)
+collision_layer = 4
+gravity_scale = 0.0
+contact_monitor = true
+script = ExtResource("1_s77cu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.5, 0)
+texture = ExtResource("1_ul7pn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_o1uwl")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(2, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(-4, 0)
+target_position = Vector2(-2, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
