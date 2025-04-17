@@ -1,10 +1,10 @@
 [gd_scene load_steps=31 format=4 uid="uid://uybef647cy0c"]
 
-[ext_resource type="Script" path="res://World/Levels/room_13.gd" id="1_36eek"]
+[ext_resource type="Script" uid="uid://d22y4qeng1rss" path="res://World/Levels/room_13.gd" id="1_36eek"]
 [ext_resource type="PackedScene" uid="uid://baprq14svtfj4" path="res://Entities/Player/player.tscn" id="1_c3o7d"]
 [ext_resource type="PackedScene" uid="uid://btm8i7kyj8h2" path="res://World/TileMaps/tile_map.tscn" id="2_pbg58"]
 [ext_resource type="Texture2D" uid="uid://dsdf2naw6gv4t" path="res://Assets/boss.png" id="3_ew2g4"]
-[ext_resource type="Script" path="res://World/Levels/boss.gd" id="4_pijyp"]
+[ext_resource type="Script" uid="uid://bxcqcticoqke4" path="res://World/Levels/boss.gd" id="4_pijyp"]
 [ext_resource type="Texture2D" uid="uid://b54d247kyk07" path="res://Assets/carlogaming.png" id="6_ghpkj"]
 [ext_resource type="Texture2D" uid="uid://bfffgu4a67h5q" path="res://World/key_hole.png" id="7_3m243"]
 [ext_resource type="PackedScene" uid="uid://bbpfliouyy706" path="res://Entities/spawn_setter/spawn_setter.tscn" id="8_2bpm2"]

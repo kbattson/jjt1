@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://baprq14svtfj4"]
+[gd_scene load_steps=18 format=3 uid="uid://baprq14svtfj4"]
 
-[ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_f0bd8"]
+[ext_resource type="Script" uid="uid://bl3pd1tmygrx2" path="res://Entities/Player/player.gd" id="1_f0bd8"]
 [ext_resource type="Texture2D" uid="uid://4yq8hw4oq8y" path="res://Entities/Player/player.png" id="1_gx1qv"]
-[ext_resource type="Script" path="res://Entities/Player/ui.gd" id="3_hu0ih"]
+[ext_resource type="Script" uid="uid://dkbmqcygr88xh" path="res://Entities/Player/ui.gd" id="3_hu0ih"]
+[ext_resource type="Shader" uid="uid://ca1q6vp4765c6" path="res://World/crt.gdshader" id="4_5c2io"]
 [ext_resource type="FontFile" uid="uid://d2xk6epfeb0ag" path="res://Global/m3x6.ttf" id="5_gncjw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bujwm"]
@@ -90,6 +91,30 @@ size = Vector2(3, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cnesx"]
 size = Vector2(6, 8)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4wf4l"]
+shader = ExtResource("4_5c2io")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.037
+shader_parameter/scanlines_width = 0.045
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(960, 600)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.00500005
+shader_parameter/brightness = 1.0
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.1
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.2
+
 [node name="player" type="CharacterBody2D"]
 top_level = true
 collision_layer = 2
@@ -126,6 +151,13 @@ shape = SubResource("RectangleShape2D_cnesx")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("3_hu0ih")
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_4wf4l")
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 163.0
+offset_bottom = 103.0
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 offset_right = 40.0

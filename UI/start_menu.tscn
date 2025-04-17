@@ -1,8 +1,33 @@
-[gd_scene load_steps=46 format=3 uid="uid://biyut0mdsphow"]
+[gd_scene load_steps=48 format=3 uid="uid://biyut0mdsphow"]
 
-[ext_resource type="Script" path="res://UI/start_menu.gd" id="1_37dv0"]
+[ext_resource type="Script" uid="uid://bnudihvsvpdlx" path="res://UI/start_menu.gd" id="1_37dv0"]
 [ext_resource type="Texture2D" uid="uid://bbghfk5gv7cko" path="res://Assets/god.png" id="2_3d38a"]
+[ext_resource type="Shader" uid="uid://ca1q6vp4765c6" path="res://World/crt.gdshader" id="2_j3hi8"]
 [ext_resource type="FontFile" uid="uid://d2xk6epfeb0ag" path="res://Global/m3x6.ttf" id="3_g36bo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_neu3s"]
+shader = ExtResource("2_j3hi8")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.037
+shader_parameter/scanlines_width = 0.045
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(960, 600)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.00500005
+shader_parameter/brightness = 1.0
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.1
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vcb54"]
 atlas = ExtResource("2_3d38a")
@@ -302,6 +327,15 @@ animations = [{
 [node name="start_menu" type="CanvasLayer"]
 layer = 0
 script = ExtResource("1_37dv0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_neu3s")
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 163.0
+offset_bottom = 103.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(80, 38)

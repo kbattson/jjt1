@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=4 uid="uid://cqk2vogomtlgw"]
 
 [ext_resource type="PackedScene" uid="uid://baprq14svtfj4" path="res://Entities/Player/player.tscn" id="1_77asw"]
-[ext_resource type="Script" path="res://World/Levels/shop.gd" id="1_qdfl3"]
+[ext_resource type="Script" uid="uid://6fu5qmamyw1r" path="res://World/Levels/shop.gd" id="1_qdfl3"]
 [ext_resource type="PackedScene" uid="uid://btm8i7kyj8h2" path="res://World/TileMaps/tile_map.tscn" id="2_pmopf"]
-[ext_resource type="Script" path="res://World/Levels/door.gd" id="3_q4ck6"]
+[ext_resource type="Script" uid="uid://b4gaguac3tgyj" path="res://World/Levels/door.gd" id="3_q4ck6"]
 [ext_resource type="Texture2D" uid="uid://cqv8rusqkqddq" path="res://Assets/door.png" id="4_8x1oy"]
 [ext_resource type="FontFile" uid="uid://d2xk6epfeb0ag" path="res://Global/m3x6.ttf" id="5_bdcp7"]
 [ext_resource type="Texture2D" uid="uid://bbqkirk4whlsw" path="res://UI/Heart/heart.png" id="6_guf0i"]

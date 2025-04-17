@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0nnon5umbpvw"]
 
-[ext_resource type="Script" path="res://Entities/spawn_setter/spike_spawn_setter.gd" id="1_gfm4l"]
+[ext_resource type="Script" uid="uid://d2bynfwypht8e" path="res://Entities/spawn_setter/spike_spawn_setter.gd" id="1_gfm4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufg2f"]
 size = Vector2(32, 32)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2wp7svjawkoq"]
 
-[ext_resource type="Script" path="res://Entities/Shooter/shooter_bullet.gd" id="1_s77cu"]
+[ext_resource type="Script" uid="uid://dr53kvk1j7v0x" path="res://Entities/Shooter/shooter_bullet.gd" id="1_s77cu"]
 [ext_resource type="Texture2D" uid="uid://g8ui01tece7u" path="res://Entities/Shooter/bullet.png" id="1_ul7pn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1uwl"]

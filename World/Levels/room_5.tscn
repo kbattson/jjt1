@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=4 uid="uid://cy2kbbqv1xaw0"]
 
-[ext_resource type="Script" path="res://World/Levels/scripts/room_5.gd" id="1_qm8p1"]
+[ext_resource type="Script" uid="uid://bd2y4k5mivj2h" path="res://World/Levels/scripts/room_5.gd" id="1_qm8p1"]
 [ext_resource type="PackedScene" uid="uid://baprq14svtfj4" path="res://Entities/Player/player.tscn" id="1_r8qql"]
 [ext_resource type="PackedScene" uid="uid://brhn0u3dxn2p5" path="res://World/MovingPlatform/moving_platform.tscn" id="3_4dj2e"]
 [ext_resource type="PackedScene" uid="uid://p42jlgkmsutn" path="res://Entities/Shooter/shooter.tscn" id="3_t6cet"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://p42jlgkmsutn"]
 
-[ext_resource type="Script" path="res://Entities/Shooter/shooter.gd" id="1_6mffi"]
+[ext_resource type="Script" uid="uid://by2tdnw6eubu5" path="res://Entities/Shooter/shooter.gd" id="1_6mffi"]
 [ext_resource type="Texture2D" uid="uid://cqsxdpwocglvh" path="res://Entities/Shooter/Sprite-0005.png" id="2_cki4x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1px3"]

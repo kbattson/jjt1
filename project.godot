@@ -12,8 +12,9 @@ config_version=5
 
 config/name="jjt1"
 run/main_scene="res://UI/start_menu.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://Assets/door.png"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+run/max_fps=144
+config/windows_native_icon="res://door.ico"
 
 [autoload]
 
@@ -27,8 +28,8 @@ window/size/viewport_width=160
 window/size/viewport_height=100
 window/size/initial_position_type=2
 window/size/resizable=false
-window/size/window_width_override=1600
-window/size/window_height_override=1000
+window/size/window_width_override=960
+window/size/window_height_override=600
 window/stretch/mode="canvas_items"
 
 [file_customization]
@@ -106,6 +107,8 @@ interact={
 
 [physics]
 
+common/physics_ticks_per_second=120
+common/physics_jitter_fix=1.0
 2d/default_gravity=400.0
 
 [rendering]

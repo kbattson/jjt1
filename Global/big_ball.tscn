@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://0kigrgbouy2m"]
 
-[ext_resource type="Script" path="res://Global/big_ball.gd" id="1_plmx6"]
+[ext_resource type="Script" uid="uid://bc6sky2u8ptdo" path="res://Global/big_ball.gd" id="1_plmx6"]
 [ext_resource type="Texture2D" uid="uid://doaxilv87co6n" path="res://Assets/big_ball.png" id="1_slglp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d4udp"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c6br8gimllhh3"]
 
 [ext_resource type="Texture2D" uid="uid://btbtaodiq0cy4" path="res://Entities/Bomber/bomber.png" id="1_4ngm6"]
-[ext_resource type="Script" path="res://Entities/Bomber/bomber.gd" id="1_k4dh5"]
+[ext_resource type="Script" uid="uid://dfowl6m8jk6ma" path="res://Entities/Bomber/bomber.gd" id="1_k4dh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cg5j2"]
 size = Vector2(6, 6)

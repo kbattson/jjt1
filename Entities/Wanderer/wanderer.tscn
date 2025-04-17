@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dbkt5rnxap3mf"]
 
-[ext_resource type="Script" path="res://Entities/Wanderer/wanderer.gd" id="1_k87vv"]
+[ext_resource type="Script" uid="uid://dhxsodut7q462" path="res://Entities/Wanderer/wanderer.gd" id="1_k87vv"]
 [ext_resource type="Texture2D" uid="uid://csjel41vdxina" path="res://Entities/Wanderer/wanderer.png" id="2_wsprq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fr8a"]

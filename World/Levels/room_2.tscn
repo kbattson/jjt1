@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://baprq14svtfj4" path="res://Entities/Player/player.tscn" id="3_m3c38"]
 [ext_resource type="PackedScene" uid="uid://btm8i7kyj8h2" path="res://World/TileMaps/tile_map.tscn" id="4_tfkc5"]
 [ext_resource type="PackedScene" uid="uid://bbpfliouyy706" path="res://Entities/spawn_setter/spawn_setter.tscn" id="5_y6vkb"]
-[ext_resource type="Script" path="res://World/Levels/door.gd" id="6_0jvbs"]
+[ext_resource type="Script" uid="uid://b4gaguac3tgyj" path="res://World/Levels/door.gd" id="6_0jvbs"]
 [ext_resource type="Texture2D" uid="uid://cqv8rusqkqddq" path="res://Assets/door.png" id="7_hcmub"]
 [ext_resource type="FontFile" uid="uid://d2xk6epfeb0ag" path="res://Global/m3x6.ttf" id="8_yvein"]
 

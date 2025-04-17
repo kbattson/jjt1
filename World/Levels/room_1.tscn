@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=4 uid="uid://w5ihp8nccxw"]
 
 [ext_resource type="PackedScene" uid="uid://baprq14svtfj4" path="res://Entities/Player/player.tscn" id="1_5toce"]
-[ext_resource type="Script" path="res://World/Levels/scripts/room_1.gd" id="1_c2s1e"]
+[ext_resource type="Script" uid="uid://c1c8nao530xh7" path="res://World/Levels/scripts/room_1.gd" id="1_c2s1e"]
 [ext_resource type="PackedScene" uid="uid://mrpjua8vrjbm" path="res://Entities/Walker/walker.tscn" id="3_xqlgs"]
 [ext_resource type="PackedScene" uid="uid://btm8i7kyj8h2" path="res://World/TileMaps/tile_map.tscn" id="4_7udla"]
 [ext_resource type="PackedScene" uid="uid://casvhqr7evvje" path="res://Entities/Spike/spike.tscn" id="4_h8to4"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dj040dis4gygy"]
 
-[ext_resource type="Script" path="res://Entities/Bouncer/bouncer.gd" id="1_o6e6b"]
+[ext_resource type="Script" uid="uid://ctq25jodhqnth" path="res://Entities/Bouncer/bouncer.gd" id="1_o6e6b"]
 [ext_resource type="Texture2D" uid="uid://bc73hvv2iyu6j" path="res://Entities/Bouncer/bouncer.png" id="2_16nl6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvf7n"]
